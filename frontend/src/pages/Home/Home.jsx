@@ -9,6 +9,7 @@ import '../../sass/pages/_Home.scss';
 
 /* Home page */
 function Home () {
+   /* pour associer les noms d'images aux fichiers importés*/
     const imageData = {
         "icon-chat.webp": iconChat,
         "icon-money.webp": iconMoney,
@@ -18,13 +19,13 @@ function Home () {
     return (
         <div className='homepage'>
             <main>
-                {/* Returns banner*/}
+                
                 <Banner />
                 <section className="features">
                     <h2 className='sr-only'>Features</h2>
-                    {/* Return items from json file with map */}
+                    {/* Affiche les éléments à partir du fichier JSON avec la méthode map */}
                     {FeaturesItemData.map((data) => (
-                        /* Return item component */
+                         /* Affiche le composant Item */
                         < Item 
                             key={data.id}
                             image={imageData[data.image]}

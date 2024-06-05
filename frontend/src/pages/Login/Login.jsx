@@ -6,8 +6,7 @@ import '../../sass/pages/_SignIn.scss';
 function Login () {
     return (
         <div className='signin-page'>
-            <main className='bg-dark'>
-                {/* Returns form component */}
+            <main>
                 < Form />
             </main>
         </div>

@@ -1,17 +1,18 @@
 import { GET_USERPROFILE, EDIT_USERNAME } from "./type.actions";
 
-/* User data recovery action */
+
+/* Action de récupération des données utilisateur */
 export const userProfile = (userData) => {
     return {
         type: GET_USERPROFILE,
-        payload: userData,
+        payload: userData,// Données utilisateur à transmettre
     }
 }
 
-/* Username update action */
+/* Action de mise à jour du nom d'utilisateur */
 export const updateUsername = (username) => {
     return {
         type: EDIT_USERNAME,
-        payload: username,
+        payload: username,// Nouveau nom d'utilisateur à transmettre
     }
 }

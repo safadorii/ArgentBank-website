@@ -1,13 +1,13 @@
 import { LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT } from "./type.actions";
 
-/* Authentication actions */
+/* Actions d'authentification */
 export const loginSuccess = (token) => {
     return {
         type: LOGIN_SUCCESS,
         payload: token,
     }
 }
-
+/* Action d'échec de connexion */
 export const loginFailed = (error) => {
     return {
         type: LOGIN_FAIL,

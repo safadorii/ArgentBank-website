@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUsername } from '../redux/actions/user.actions.jsx';
 import { isValidName } from "../utils/regex.jsx";
-import '../sass/components/_UserProfile.scss';
+import '../sass/components/_User.scss';
 
 function User() {
     /* Met à jour les données de l'utilisateur sur la page de profil depuis l'état Redux */
