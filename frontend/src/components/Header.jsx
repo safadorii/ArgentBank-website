@@ -6,18 +6,18 @@ import { logout } from '../redux/actions/auth.actions';
 import '../sass/components/_Header.scss';
 
 function Header() {
-    /* Met à jour les données utilisateur dans le composant header à partir de l'état Redux */
-    const isConnected = useSelector((state) => state.auth.token);
-    const firstname = useSelector((state) => state.user.userData.firstname);
+    // Récupération des données utilisateur à partir de l'état Redux
+    const isConnected = useSelector((state) => state.auth.token); // Vérifie si l'utilisateur est connecté en récupérant le token d'authentification
+    const firstname = useSelector((state) => state.user.userData.firstname);// Récupère le prénom de l'utilisateur à partir des données utilisateur
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+    // Fonction de déconnexion de l'utilisateur
     const logoutHandler = () => {
-        dispatch(logout());
-        sessionStorage.clear();
-        localStorage.clear();
-        navigate('/');
+        dispatch(logout());// Dispatch de l'action logout pour déconnecter l'utilisateur
+        sessionStorage.clear();// Suppression du token d'authentification stocké dans sessionStorage
+        localStorage.clear();// Suppression du token d'authentification stocké dans localStorage
+        navigate('/');// Redirection vers la page d'accueil
     }
     return (
         <header>
