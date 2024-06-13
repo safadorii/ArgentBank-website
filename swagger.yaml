@@ -101,7 +101,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-           /user/account:
+  /user/account:
     post: 
       tags:
         - Accounts and Transactions Module
@@ -147,6 +147,36 @@ paths:
           description: Account not found
         '500':
           description: Internal Server Error
+  /account/{accountID}/transactions/{transactionID}: 
+     post:
+      tags:
+        - Accounts and Transactions Module
+      summary: Transaction details
+      description: API for getting a single transaction details
+      security: 
+        - Bearer: []
+      parameters:
+        - in: path
+          name: accountID
+          description: User's account ID
+          required: true
+          type: string
+        - in: path
+          name: transactionID
+          description: Transaction's ID
+          required: true
+          type: integer  
+      responses:
+        '200':
+          description: transaction retrieved successfully
+          schema: 
+              $ref: '#/definitions/TransactionsResponse'
+        '401':
+          description: Unauthorized user
+        '404': 
+          description: transaction not found 
+        '500':
+          description: Internal Server Error     
   /transactions/{transactionID}/category:
     put:
       tags:
@@ -327,7 +357,7 @@ definitions:
     properties:
       userName:
         type: string
- AccountResponse:
+  AccountResponse:
       type: object
       properties:
         accountID:
@@ -389,4 +419,4 @@ definitions:
         type: string
       noteID:
         type: string      
-  
+           
