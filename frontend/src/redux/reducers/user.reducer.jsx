@@ -1,19 +1,34 @@
-import { GET_USERPROFILE, EDIT_USERNAME } from "./type.actions";
+import { GET_USERPROFILE, EDIT_USERNAME, LOGOUT } from "../actions/type.actions"
 
+/* Initial user state */
+const initialState = {
+    status: 'VOID',
+    userData: {}
+}
 
-/* Action de récupération des données utilisateur */
-export const userProfile = (userData) => {
-    return {
-        type: GET_USERPROFILE,
-        payload: userData,// Données utilisateur à transmettre
+export const userReducer = (state = initialState, action ) => {
+    switch (action.type) {
+        case GET_USERPROFILE:
+            return {
+                ...state,
+                status: 'SUCCEEDED',
+                userData: action.payload
+            }
+        case EDIT_USERNAME: 
+            return {
+                ...state,
+                status: "MODIFIED",
+                userData: {
+                    ...state.userData,
+                    username: action.payload
+                } 
+            } 
+        case LOGOUT: {
+            return initialState;  
+        }   
+        default:
+            return state;    
     }
 }
 
-/* Action de mise à jour du nom d'utilisateur */
-export const updateUsername = (username) => {
-    return {
-        type: EDIT_USERNAME,
-        payload: username,// Nouveau nom d'utilisateur à transmettre
-    }
-}
         
